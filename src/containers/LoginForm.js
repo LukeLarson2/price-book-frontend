@@ -26,13 +26,16 @@ function LoginForm() {
   //--HANDLE SUBMIT OF LOGIN REQUEST--
   const onSubmit = async (values, { setSubmitting, setFieldError }) => {
     try {
-      const response = await fetch("http://localhost:4000/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      });
+      const response = await fetch(
+        "https://price-book-backend-production.up.railway.app/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(values),
+        }
+      );
 
       if (response.ok) {
         const userData = await response.json();

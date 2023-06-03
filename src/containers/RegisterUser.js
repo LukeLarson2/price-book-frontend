@@ -51,13 +51,16 @@ function RegisterUser() {
     const updatedValues = { ...values };
 
     // Send the data to the backend
-    fetch("http://localhost:4000/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(updatedValues),
-    })
+    fetch(
+      "https://price-book-backend-production.up.railway.app/users/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedValues),
+      }
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

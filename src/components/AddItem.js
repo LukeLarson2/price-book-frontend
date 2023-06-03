@@ -54,7 +54,10 @@ function AddItem({ onClose, addProduct }) {
         ...values,
       };
       await axios
-        .post("http://localhost:4000/products", postData)
+        .post(
+          "https://price-book-backend-production.up.railway.app/products",
+          postData
+        )
         .then((res) => {
           addProduct(values);
           onClose();

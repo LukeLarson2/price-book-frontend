@@ -32,7 +32,7 @@ function Home() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/products?sortBy=${sortField}`,
+          `https://price-book-backend-production.up.railway.app/products?sortBy=${sortField}`,
           {
             method: "GET",
             headers: {
@@ -99,16 +99,19 @@ function Home() {
   const updateProduct = async (updatedProduct) => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/products", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          userId: updatedProduct.userKey,
-          product: updatedProduct,
-        }),
-      });
+      const response = await fetch(
+        "https://price-book-backend-production.up.railway.app/products",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: updatedProduct.userKey,
+            product: updatedProduct,
+          }),
+        }
+      );
 
       if (response.ok) {
         const productUpdate = await response.json();
@@ -138,15 +141,18 @@ function Home() {
   //--DELETE PRODUCT --
   const handleRemove = async (key) => {
     try {
-      const response = await fetch("http://localhost:4000/products", {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          key,
-        }),
-      });
+      const response = await fetch(
+        "https://price-book-backend-production.up.railway.app/products",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            key,
+          }),
+        }
+      );
 
       if (response.ok) {
         setProducts(products.filter((product) => product.key !== key));
