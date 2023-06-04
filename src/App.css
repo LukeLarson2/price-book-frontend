@@ -503,6 +503,7 @@ select {
   margin-right: 5px;
 }
 .sort-select {
+  background-color: #f5f5f5;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 30px;
